@@ -54,7 +54,7 @@ const Home: NextPage = () => {
         </div>
 
         <div className="mt-4">
-          <AppAbout  />
+          <AppAbout isMain={false} />
         </div>
       </div>
     </section>
