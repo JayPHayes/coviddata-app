@@ -1,13 +1,17 @@
 import React from "react";
 import {CovidCase}  from "../models/iCases";
 
-function AppCardCases( {covidCase}:{covidCase: CovidCase} ) {
+function AppCardCases( 
+  {covidCase, selected}:{covidCase: CovidCase, selected: Boolean} ,
+  ) {
   return (
     <div
-      className="flex items-center space-x-2 bg-white   
-                            px-2 py-2 mr-4
-                            border-keySysBlue-100/30
-                            border rounded-md shadow-md"
+      className={` ${selected ? "bg-keySysBlue-100/20" : "" }
+                flex items-center space-x-2 bg-white   
+               hover:bg-keySysBlue-100/10 cursor-pointer
+                px-2 py-2 mr-4
+                border-keySysBlue-100/30
+                border rounded-md shadow-md`}
     >
       <img
         className="h-16 w-16 rounded-full"

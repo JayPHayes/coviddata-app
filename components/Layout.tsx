@@ -4,7 +4,7 @@ import AppHeader from './AppHeader';
 
 function Layout({children}: {children: React.ReactNode}) {
   return (
-    <div className='bg-gray-50 min-h-screen'>
+    <div className='bg-gray-50 min-h-screen px-4'>
       <div className='container mx-auto  '>
         <Head>
           <title>Kesysy - API Example</title>

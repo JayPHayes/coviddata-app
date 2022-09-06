@@ -10,6 +10,7 @@ export interface CovidCase {
     caseType:            CaseType;
     newCaseStatus:       NewCaseStatus;
     newCaseStatusColor:  NewCaseStatusColor;
+    isNewCases:          boolean;
     casesImportDate:     Date;
 }
 
