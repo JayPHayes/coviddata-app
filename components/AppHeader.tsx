@@ -12,7 +12,7 @@ function AppHeader() {
   const router = useRouter()
   var pathname = router.pathname.replace('/', '')
 
-  console.log('XXX pathname:', pathname)
+  // console.log('XXX pathname:', pathname)
 
   return (
     <>

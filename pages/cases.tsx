@@ -9,11 +9,11 @@ import Image from "next/image";
 import AppStateDetail from "../components/AppStateDetail";
 
 function Cases(data: CovidCase) {
-  const [isTableList, setIsTableList] = useState(false)
+  const [isTableList, setIsTableList] = useState(true)
   const [isDetails, setIsDetails] = useState(false)
   const [search, setSearch] = useState("")
   const [selectedState, setSelectedState] = useState<CovidCase>(data.data[0])
-  console.log('XXXX isDetails: ', isDetails)
+  // console.log('XXXX isDetails: ', isDetails)
 
   const handleSearch = (rows:CovidCase[]) => {
     return rows.filter((row) => 
@@ -34,7 +34,7 @@ function Cases(data: CovidCase) {
     setIsDetails(false)
   }
 
-  console.log("XXX data: ", data);
+  // console.log("XXX data: ", data);
   return (
     <div>
       {/* *** Header *** */}
