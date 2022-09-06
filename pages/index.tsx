@@ -6,6 +6,8 @@ import AppLogo from "../components/AppLogo";
 import { FaBars, FaTimes } from "react-icons/fa";
 import appMenu from "../config/appMenu";
 import AppHeader from "../components/AppHeader";
+import Link from "next/link";
+import AppAbout from "../components/AppAbout";
 
 
 
@@ -15,7 +17,6 @@ const Home: NextPage = () => {
   return (
     <section className="skewed-bottom-right">
       {/* <AppHeader  /> */}
-
 
       <div className="bg-gray-50 pt-20 pb-20 radius-for-skewed ">
         <div className="container mx-auto px-4 ">
@@ -32,47 +33,30 @@ const Home: NextPage = () => {
                 </div>
                 <div className="max-w-sm mx-auto lg:mx-0">
                   <p className="mb-6 text-gray-400 leading-loose">
-                    WE DESIGN, DEVELOP, & INTEGRATE SOFTWARE. 
-                    C# API.NEt core 6.0 sample project with ADO.NET and Microsoft.Data.SqlClient
+                    WE DESIGN, DEVELOP, & INTEGRATE SOFTWARE. C# API.NEt core
+                    6.0 sample project with ADO.NET and Microsoft.Data.SqlClient
                   </p>
-                  {/* <div>
-                    <a
-                      className="inline-block mb-3 lg:mb-0 lg:mr-3 w-full lg:w-auto py-2 px-6 leading-loose bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-l-xl rounded-t-xl transition duration-200"
-                      href="#"
-                    >
-                      Get Started
+
+                  <Link href="/cases"
+                  >
+                    <a className="inline-block py-2 px-6 bg-keySysBlue-100 hover:bg-blue-700 text-white font-bold leading-loose rounded-l-xl rounded-t-xl transition duration-200" >
+                      See Code In Aciton - Covid Cases
                     </a>
-                    <a
-                      className="inline-block w-full lg:w-auto py-2 px-6 leading-loose font-semibold bg-white hover:bg-gray-50 rounded-l-xl rounded-t-xl transition duration-200"
-                      href="#"
-                    >
-                      How it works
-                    </a>
-                  </div> */}
+                  </Link>                  
                 </div>
               </div>
             </div>
             <div className="w-full lg:w-1/2 px-4 flex items-center justify-center">
-              <img
-                src="/Keysys02.jpg"
-                alt=""
-              />
+              <img src="/Keysys02.jpg" alt="" />
             </div>
           </div>
+
+        </div>
+
+        <div className="mt-4">
+          <AppAbout  />
         </div>
       </div>
-
-      {/* <div className="mr-for-radius">
-        <svg
-          className="h-8 md:h-12 lg:h-20 w-full text-gray-50"
-          viewBox="0 0 10 10"
-          preserveAspectRatio="none"
-        >
-          <polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
-        </svg>
-      </div> */}
-
-
     </section>
   );
 };

@@ -1,11 +1,18 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { useRouter } from "next/router";
+import { FaBars, FaLinkedin, FaTimes } from "react-icons/fa";
 import appMenu from "../config/appMenu";
 import AppLogo from "./AppLogo";
+import path from "path";
 
 function AppHeader() {
   const [isMenu, setIsMenu] = useState(false);
+
+  const router = useRouter()
+  var pathname = router.pathname.replace('/', '')
+
+  console.log('XXX pathname:', pathname)
 
   return (
     <>
@@ -24,18 +31,24 @@ function AppHeader() {
                        lg:w-auto lg:space-x-6"
         >
           {appMenu.map((m) => (
-            <li key={m.id}>
-              <Link href={m.nav} className="text-sm text-gray-400 hover:text-gray-500">
-                {m.name}
+            <li key={m.id} >
+              <Link href={m.nav} >
+                <span className={`${m.nav.replace('/', '') === pathname ? "text-keySysBlue-100 border-b-2 border-blue-600  " : ""} cursor-pointer text-sm  hover:text-gray-500` }>
+                  {m.name}
+                </span>
               </Link>
             </li>
           ))}
         </ul>
-        <a
+        <a target="parent"
           className="hidden lg:inline-block py-2 px-6 bg-white hover:bg-gray-50 text-sm text-blue-600 font-bold rounded-l-xl rounded-t-xl transition duration-200"
-          href="#"
+          href="https://www.linkedin.com/in/jayphayes/"
         >
-          Contact Us
+          <div className="flex items-center space-x-2">
+            <FaLinkedin  />
+            <span>Jay P. Hayes</span>
+
+          </div>
         </a>
       </nav>
 
@@ -57,17 +70,18 @@ function AppHeader() {
           <div>
             <ul>
               {appMenu.map((m) => (
-                <li key={m.id} className="mb-1">
-                  <Link href={m.nav}
-                    className="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded">
-                    {m.name}
+                <li key={m.id} className="mb-1" onClick={() => setIsMenu(false)}>
+                  <Link href={m.nav}>
+                    <span className={`${m.nav.replace('/', '') === pathname ? "bg-keySysBlue-100 text-gray-50 border-b" : " "}  cursor-pointer block p-4 text-sm font-semibold  hover:bg-blue-50 hover:text-blue-600 rounded`}>
+                      {m.name} 
+                    </span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
           <div className="mt-auto">
-            <div className="pt-6">
+            {/* <div className="pt-6">
               <a
                 className="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold  bg-gray-50 hover:bg-gray-100 rounded-l-xl rounded-t-xl"
                 href="#"
@@ -80,29 +94,20 @@ function AppHeader() {
               >
                 Sign Up
               </a>
-            </div>
+            </div> */}
             <p className="my-4 text-xs text-center text-gray-400">
-              <span>© 2020 All rights reserved.</span>
+              <span>© 2022 Jay P. Hayes Sample for KeySys.</span>
             </p>
             <div className="text-center">
-              <a className="inline-block px-1" href="#">
-                <img
-                  src="https://shuffle.dev/atis-assets/social/facebook.svg"
-                  alt=""
-                />
+
+              <a className="inline-block px-1" target="parent" href="https://www.linkedin.com/in/jayphayes/">
+                <div className="flex items-center space-x-2 text-keySysBlue-100">
+                  <FaLinkedin  />
+                  <span>Jay P. Hayes</span>
+
+                </div>
               </a>
-              <a className="inline-block px-1" href="#">
-                <img
-                  src="https://shuffle.dev/atis-assets/social/twitter.svg"
-                  alt=""
-                />
-              </a>
-              <a className="inline-block px-1" href="#">
-                <img
-                  src="https://shuffle.dev/atis-assets/social/instagram.svg"
-                  alt=""
-                />
-              </a>
+              
             </div>
           </div>
         </nav>
