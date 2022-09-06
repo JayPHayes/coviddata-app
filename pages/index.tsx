@@ -18,7 +18,7 @@ const Home: NextPage = () => {
     <section className="skewed-bottom-right">
       {/* <AppHeader  /> */}
 
-      <div className="bg-gray-50 pt-20 pb-20 radius-for-skewed ">
+      <div className="bg-gray-50 pt-20 pb-4 radius-for-skewed ">
         <div className="container mx-auto px-4 ">
           <div className="flex flex-wrap -mx-4 ">
             <div className="w-full lg:w-1/2 px-4 mb-12 md:mb-20 lg:mb-0 flex items-center ">

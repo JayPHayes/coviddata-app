@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React from 'react'
+import AppFooter from './AppFooter';
 import AppHeader from './AppHeader';
 
 function Layout({children}: {children: React.ReactNode}) {
@@ -20,6 +21,8 @@ function Layout({children}: {children: React.ReactNode}) {
         </div>
         
         {/* *** Footer *** */}
+        <AppFooter />
+
       </div>
 
     </div>

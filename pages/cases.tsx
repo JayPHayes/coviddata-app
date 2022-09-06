@@ -10,8 +10,10 @@ import AppStateDetail from "../components/AppStateDetail";
 
 function Cases(data: CovidCase) {
   const [isTableList, setIsTableList] = useState(false)
+  const [isDetails, setIsDetails] = useState(false)
   const [search, setSearch] = useState("")
   const [selectedState, setSelectedState] = useState<CovidCase>(data.data[0])
+  console.log('XXXX isDetails: ', isDetails)
 
   const handleSearch = (rows:CovidCase[]) => {
     return rows.filter((row) => 
@@ -19,6 +21,17 @@ function Cases(data: CovidCase) {
       row.isNewCasesSearch.toLocaleLowerCase().includes(search.toLocaleLowerCase())
       
       );
+  }
+
+  const handleDetails = (c: CovidCase) => {
+    setIsDetails(true)
+    setSelectedState(c)
+
+  }
+
+  const handleTableList = () => {
+    setIsTableList(!isTableList)
+    setIsDetails(false)
   }
 
   console.log("XXX data: ", data);
@@ -45,9 +58,6 @@ function Cases(data: CovidCase) {
       <div>
         <p>United States Total Cases by State</p>
         <div className="mb-2">
-          {/* <label className="block text-sm font-medium mb-2" for="">
-            Label for text
-          </label> */}
           <div className="flex items-center space-x-4">
             <input
               className="block w-full px-4 py-3  text-sm placeholder-gray-500 bg-white border border-keySysBlue-100 rounded"
@@ -60,7 +70,7 @@ function Cases(data: CovidCase) {
             {!isTableList && (
               <div
                 className="text-5xl cursor-pointer  text-keySysBlue-100  "
-                onClick={() => setIsTableList(!isTableList)}
+                onClick={() => handleTableList()}
               >
                 <BsCardText />
               </div>
@@ -69,7 +79,7 @@ function Cases(data: CovidCase) {
             {isTableList && (
               <div
                 className="text-4xl cursor-pointer text-gray-600 "
-                onClick={() => setIsTableList(!isTableList)}
+                onClick={() => handleTableList()}
               >
                 <FaList />
               </div>
@@ -81,12 +91,12 @@ function Cases(data: CovidCase) {
       {/* *** Body *** */}
       <section className="flex space-x-4">
         {/* **Left Side: List ** */}
-        <div className="w-full lg:w-10/12 py-4">
+        <div className="hidden md:block w-full lg:w-10/12 py-4">
           {isTableList && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 gap-2 overflow-y-scroll   scroll-smooth ">
               {/* *** Card ** */}
               {handleSearch(data.data).map((c: CovidCase) => (
-                <div key={c.caseId} onClick={() => setSelectedState(c)} className="">
+                <div key={c.caseId} onClick={() =>setSelectedState(c)} className="">
                   <AppCardCases covidCase={c} selected={c.caseId === selectedState.caseId} />
                 </div>
               ))}
@@ -94,19 +104,54 @@ function Cases(data: CovidCase) {
           )}
 
           {/* *** Card Row ** */}
-          {!isTableList && (
+          {!isTableList  && (
             <div className="overflow-y-scroll  h-[40rem] scroll-smooth ">
               {handleSearch(data.data).map((c: CovidCase) => (
                 <div key={c.caseId} onClick={() => setSelectedState(c)} >
-                  <AppCardCasesRow covidCase={c} selected={c.caseId === selectedState.caseId} />
+                  <AppCardCasesRow covidCase={c} selected={c.caseId === selectedState.caseId}  />
                 </div>
               ))}
             </div>
           )}
         </div>
+        {!isDetails && 
+          <div className=" md:hidden w-full lg:w-10/12 py-4">
+            {isTableList && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 gap-2 overflow-y-scroll   scroll-smooth ">
+                {/* *** Card ** */}
+                {handleSearch(data.data).map((c: CovidCase) => (
+                  <div key={c.caseId} onClick={() => handleDetails(c)} className="">
+                    <AppCardCases covidCase={c} selected={c.caseId === selectedState.caseId} />
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* *** Card Row ** */}
+            {!isTableList  && (
+              <div className="overflow-y-scroll  h-[40rem] scroll-smooth ">
+                {handleSearch(data.data).map((c: CovidCase) => (
+                  <div key={c.caseId} onClick={() => handleDetails(c)} >
+                    <AppCardCasesRow covidCase={c} selected={c.caseId === selectedState.caseId}  />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        }
 
         {/* **Right Side: Details ** */}
-        <AppStateDetail selectedState={selectedState}  />
+        <div>
+          <div className="hidden md:block ">
+            <AppStateDetail selectedState={selectedState} setIsDetails={setIsDetails} showDone={false} />
+          </div>
+
+          {isDetails && 
+            <div className="md:w-full ">
+              <AppStateDetail selectedState={selectedState} setIsDetails={setIsDetails} showDone={true}  />
+            </div>
+          }
+        </div>
         
       </section>
     </div>

@@ -9,5 +9,7 @@ const appMenu =
 
 ]
 
+export const appVersion = "©2022. All rights reserved. - Version 2022.09.06"
+
 
 export default appMenu

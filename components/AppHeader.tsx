@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { FaBars, FaLinkedin, FaTimes } from "react-icons/fa";
-import appMenu from "../config/appMenu";
+import appMenu, { appVersion } from "../config/appMenu";
 import AppLogo from "./AppLogo";
 import path from "path";
 
@@ -96,7 +96,8 @@ function AppHeader() {
               </a>
             </div> */}
             <p className="my-4 text-xs text-center text-gray-400">
-              <span>© 2022 Jay P. Hayes Sample for KeySys.</span>
+              <span>{appVersion}</span>
+              {/* <span>© 2022 Jay P. Hayes Sample for KeySys.</span> */}
             </p>
             <div className="text-center">
 

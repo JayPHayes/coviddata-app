@@ -4,20 +4,29 @@ import { FaCheck } from "react-icons/fa";
 import { CovidCase } from "../models/iCases";
 import AppCasesStatus from "./AppCasesStatus";
 
-function AppStateDetail({selectedState}: {selectedState: CovidCase}) {
+function AppStateDetail({
+  selectedState,
+  setIsDetails,
+  showDone
+}: {
+  selectedState: CovidCase;
+  setIsDetails: any;
+  showDone:Boolean
+}) {
   return (
-    <div className="hidden lg:block   bg-keySysBlue-100/20 w-4/12 min-h-[30rem]">
+    // *<div className="hidden lg:block   bg-keySysBlue-100/20 w-4/12 min-h-[30rem]"></div>*
+    <div className={`  w-full lg:block bg-keySysBlue-100/10 min-h-[30rem] rounded-md`}>
       {/* <h3>Details</h3> */}
-      
+
       {/* Images Header - Flag */}
       <div className=" relative h-48 flex justify-center  bg-blend-multiply ">
         <Image
-          className="object-cover "
+          className="object-cover rounded-t-md"
           width={450}
           height={200}
           src={selectedState.flags}
         />
-        <div className="absolute inset-0 bg-whiteX opacity-50 rounded-t-xl"></div>
+        <div className="absolute inset-0 bg-whiteX opacity-50 rounded-t-xl "></div>
       </div>
 
       <div className="px-4 py-4 space-y-4">
@@ -29,7 +38,7 @@ function AppStateDetail({selectedState}: {selectedState: CovidCase}) {
             alt=""
           />
 
-          <p className="text-5xl">{selectedState.states}</p>
+          <p className="text-4xl">{selectedState.states}</p>
         </div>
         {/* Cases */}
         <div className="text-2xl flex items-center justify-between mt-2 px-2">
@@ -45,7 +54,7 @@ function AppStateDetail({selectedState}: {selectedState: CovidCase}) {
             {selectedState.deaths.toLocaleString()}
           </div>
         </div>
-        
+
         {/* new_cases_1_day */}
         <div className="text-2xl flex items-center justify-between mt-2 px-2">
           <div>New Case 1Day:</div>
@@ -65,28 +74,19 @@ function AppStateDetail({selectedState}: {selectedState: CovidCase}) {
         {/* newCaseStatus */}
         <div className="text-2xl flex items-center justify-between mt-2 px-2">
           <div>Status:</div>
-          <AppCasesStatus selectedState={selectedState}  />
-          {/* {selectedState.isNewCases && 
-            <div className="flex items-center  space-x-3 text-green-700 
-                            text-sm border shadow-md
-                            border-green-500 px-2 py-1 rounded-md bg-green-100">
-                <FaCheck  />
-                <span>No New Cases</span>
-            </div>
-          }
-
-          {!selectedState.isNewCases && 
-            <div className="flex items-center  space-x-3 text-red-700
-                            text-sm border shadow-md
-                            border-red-500 px-2 py-1 rounded-md bg-red-100">
-                <FaCheck  />
-                <span>New Cases</span>
-            </div>
-          } */}
+          <AppCasesStatus selectedState={selectedState} />
         </div>
 
-
-
+        {showDone && 
+          <div>
+            <div
+              onClick={() => setIsDetails(false)}
+              className=" cursor-pointer bg-blue-500 border-blue-700 rounded-md text-center py-2 text-3xl text-white "
+            >
+              Done
+            </div>
+          </div>
+        }
       </div>
     </div>
   );
