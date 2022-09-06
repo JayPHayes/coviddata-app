@@ -1,86 +1,80 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import { useState } from "react";
+import AppLogo from "../components/AppLogo";
+import { FaBars, FaTimes } from "react-icons/fa";
+import appMenu from "../config/appMenu";
+import AppHeader from "../components/AppHeader";
+
+
 
 const Home: NextPage = () => {
+  const [isMenu, setIsMenu] = useState(false)
+  
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <section className="skewed-bottom-right">
+      {/* <AppHeader  /> */}
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <div className="bg-gray-50 pt-20 pb-20 radius-for-skewed ">
+        <div className="container mx-auto px-4 ">
+          <div className="flex flex-wrap -mx-4 ">
+            <div className="w-full lg:w-1/2 px-4 mb-12 md:mb-20 lg:mb-0 flex items-center ">
+              <div className="w-full text-center lg:text-left ">
+                <div className=" ">
+                  <h2 className="mb-3 text-4xl lg:text-5xl font-bold font-heading">
+                    <span className="text-keySysBlue-100">Keysys </span>
+                    <span> C# </span>
+                    <span className="text-keySysBlue-100">API </span>
+                    <span>sample project</span>
+                  </h2>
+                </div>
+                <div className="max-w-sm mx-auto lg:mx-0">
+                  <p className="mb-6 text-gray-400 leading-loose">
+                    WE DESIGN, DEVELOP, & INTEGRATE SOFTWARE. 
+                    C# API.NEt core 6.0 sample project with ADO.NET and Microsoft.Data.SqlClient
+                  </p>
+                  {/* <div>
+                    <a
+                      className="inline-block mb-3 lg:mb-0 lg:mr-3 w-full lg:w-auto py-2 px-6 leading-loose bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-l-xl rounded-t-xl transition duration-200"
+                      href="#"
+                    >
+                      Get Started
+                    </a>
+                    <a
+                      className="inline-block w-full lg:w-auto py-2 px-6 leading-loose font-semibold bg-white hover:bg-gray-50 rounded-l-xl rounded-t-xl transition duration-200"
+                      href="#"
+                    >
+                      How it works
+                    </a>
+                  </div> */}
+                </div>
+              </div>
+            </div>
+            <div className="w-full lg:w-1/2 px-4 flex items-center justify-center">
+              <img
+                src="/Keysys02.jpg"
+                alt=""
+              />
+            </div>
+          </div>
         </div>
-      </main>
+      </div>
 
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      {/* <div className="mr-for-radius">
+        <svg
+          className="h-8 md:h-12 lg:h-20 w-full text-gray-50"
+          viewBox="0 0 10 10"
+          preserveAspectRatio="none"
         >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
-    </div>
-  )
-}
+          <polygon fill="currentColor" points="0 0 10 0 0 10"></polygon>
+        </svg>
+      </div> */}
 
-export default Home
+
+    </section>
+  );
+};
+
+export default Home;
