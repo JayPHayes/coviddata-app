@@ -1,17 +1,22 @@
 ## Keysys C# API sample project ( Version 2022.09.06)
 
-![NEXT FIREBASE v+ - Version Beta: v202206.22](https://dl.airtable.com/.attachmentThumbnails/10923349e6b0c4ffa0b0f158d38f6062/34ae172e)
+![Version Beta: v202209.06](public/images/CovidDataScreen.jpg)
+
+# Next.js / React.js / Tailwinds Front end
+
+Next.js is an open-source web development framework created by Vercel enabling React-based web applications with server-side rendering and generating static websites
+
+React is a free and open-source front-end JavaScript library for building user interfaces based on UI components. It is maintained by Meta and a community of individual developers and companies.
 
 # Keysys C# API sample project.
+
 ASP.NET Core is a free and open-source web framework and successor to ASP.NET, developed by Microsoft. It is a modular framework that runs on both the full .NET Framework, on Windows, and the cross-platform .NET. However ASP.NET Core version 3 works only on .NET Core dropping support of the .NET Framewor
+![Version Beta: v202209.06](public/images/CovidDataAPI.jpg)
 
+# Sql Server Database
 
-# Major Feature  Lot List  .
-![NEXT FIREBASE v+ - Version Beta: v202206.22](https://dl.airtable.com/.attachmentThumbnails/fbd1c8a29bc414b145470ab0ccf9df6b/2ceb4f1e)
-
-
-
-
+Microsoft SQL Server is a relational database management system developed by Microsoft. As a database server, it is a software product with the primary function of storing and retrieving data as requested by other software applications—which may run either on the same computer or on another computer across a network
+![Version Beta: v202209.06](public/images/CovidDataSQL.jpg)
 
 # Next.js + Tailwind CSS Example
 
