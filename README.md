@@ -1,3 +1,18 @@
+## Keysys C# API sample project ( Version 2022.09.06)
+
+![NEXT FIREBASE v+ - Version Beta: v202206.22](https://dl.airtable.com/.attachmentThumbnails/10923349e6b0c4ffa0b0f158d38f6062/34ae172e)
+
+# Keysys C# API sample project.
+ASP.NET Core is a free and open-source web framework and successor to ASP.NET, developed by Microsoft. It is a modular framework that runs on both the full .NET Framework, on Windows, and the cross-platform .NET. However ASP.NET Core version 3 works only on .NET Core dropping support of the .NET Framewor
+
+
+# Major Feature  Lot List  .
+![NEXT FIREBASE v+ - Version Beta: v202206.22](https://dl.airtable.com/.attachmentThumbnails/fbd1c8a29bc414b145470ab0ccf9df6b/2ceb4f1e)
+
+
+
+
+
 # Next.js + Tailwind CSS Example
 
 This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
